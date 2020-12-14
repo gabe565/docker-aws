@@ -1,9 +1,6 @@
-FROM python:3-alpine
+FROM alpine
 
-RUN set -x \
-    && apk add --no-cache \
-        groff \
-    && pip install --no-cache-dir \
-        awscli
+RUN apk add --no-cache \
+        aws-cli
 
 ENTRYPOINT ["aws"]
