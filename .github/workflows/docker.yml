@@ -7,7 +7,7 @@ on:
     branches: master
 
 env:
-  image: gabe565/awscli
+  image: gabe565/aws
 
 jobs:
   build:

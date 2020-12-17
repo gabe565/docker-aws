@@ -1,13 +1,13 @@
-# docker-awscli
+# docker-aws
 
-This is a simple Alpine Docker image with the awscli installed.
+This is a simple Alpine Docker image with the aws-cli command preinstalled.
 
 ## Usage
 
-Simple prefix any command with `docker run --rm -it gabe565/awscli`. For example:
+Simple prefix any command with `docker run --rm -it gabe565/aws`. For example:
 
 ```sh
-docker run --rm -it gabe565/awscli help
+docker run --rm -it gabe565/aws help
 ```
 
 ### Authentication
@@ -17,7 +17,7 @@ docker run --rm -it gabe565/awscli help
 The simplest way to authenticate is by using the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables:
 
 ```sh
-docker run --rm -it -e AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE -e AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY gabe565/awscli help
+docker run --rm -it -e AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE -e AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY gabe565/aws help
 ```
 
 #### AWS Config
@@ -25,7 +25,7 @@ docker run --rm -it -e AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE -e AWS_SECRET_ACCE
 Alternatively, you can volume bind an existing AWS configuration directory to `/.aws`.
 
 ```sh
-docker run --rm -it -v ~/.aws:/.aws gabe565/awscli help
+docker run --rm -it -v ~/.aws:/.aws gabe565/aws help
 ```
 
 ### Local Volume Binding
@@ -35,5 +35,5 @@ If you need to bind the current directory to a volume, the container runs the gi
 For example, to sync the contents of a bucket called `example-bucket` to the current directory, run:
 
 ```sh
-docker run --rm -it -v "$PWD:/data" gabe565/awscli s3 sync s3://example-bucket .
+docker run --rm -it -v "$PWD:/data" gabe565/aws s3 sync s3://example-bucket .
 ```
