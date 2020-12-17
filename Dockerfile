@@ -2,7 +2,8 @@ FROM alpine
 
 WORKDIR /data
 
-RUN apk add --no-cache \
+RUN set -x \
+    && apk add --no-cache \
         aws-cli \
     && ln -s /root/.aws /.aws
 
